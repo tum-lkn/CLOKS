@@ -1,0 +1,83 @@
+services:
+  - name: details
+    lb_policy: least_requests
+    min_replicas: 5
+    max_replicas: 20
+    port: 9080
+    pod_ready_delay: 25
+    pod_deletion_grace_period: 30
+    cpu_num_workers: 1
+    cpu_num_threads: 1
+    cpu_request: 500
+    cpu_limit: 500
+    request_timeout: 1
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 2.24
+    upstream: []  # no downstream calls in Bookinfo
+
+  - name: ratings
+    lb_policy: least_requests
+    min_replicas: 5
+    max_replicas: 10
+    port: 9080
+    pod_ready_delay: 25
+    pod_deletion_grace_period: 30
+    cpu_num_workers: 1
+    cpu_num_threads: 1
+    cpu_request: 350
+    cpu_limit: 350
+    request_timeout: 1
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 1.04
+    upstream: []  # no downstream calls in Bookinfo
+
+  - name: reviews-v2
+    lb_policy: least_requests
+    min_replicas: 5
+    max_replicas: 20
+    port: 9080
+    pod_ready_delay: 25
+    pod_deletion_grace_period: 30
+    cpu_num_workers: 5
+    cpu_num_threads: 1
+    cpu_request: 200
+    cpu_limit: 200
+    request_timeout: 1
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 3.13
+    upstream:
+      - service: ratings
+        profile_name: "profile-regular"
+        trigger_at: 0.7352
+        probability: 1.0        # v2 always calls ratings
+        blocking: true
+
+  - name: productpage
+    lb_policy: least_requests
+    min_replicas: 5
+    max_replicas: 15
+    port: 9080
+    pod_ready_delay: 25
+    pod_deletion_grace_period: 30
+    cpu_num_workers: 8
+    cpu_num_threads: 1
+    cpu_request: 500
+    cpu_limit: 500
+    request_timeout: 1
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 9.03
+    upstream:
+      - service: details
+        profile_name: "profile-regular"
+        trigger_at: 0.4708
+        probability: 1.0
+        blocking: true
+      - service: reviews-v2
+        profile_name: "profile-regular"
+        trigger_at: 0.8037
+        probability: 1.0
+        blocking: true

@@ -1,0 +1,12 @@
+iat:
+  end_time: 3_000
+  id: "5_total"
+  profiles:
+  - rates:         [30, 1]
+    change_points: [60]
+    ramp_up_period_in_sec: 0
+    memory_request_MiB: 1
+    name: "profile-regular"
+    service_name: "frontend"
+    iat_distribution: "uniform"
+    iat_jitter_ms: 0

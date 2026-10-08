@@ -1,0 +1,42 @@
+iat:
+  end_time: 3850
+  id: "latency-vs-rps"
+  profiles:
+  - rates:
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 50
+    - 55
+    - 60
+    - 65
+    - 70
+    - 75
+    - 80
+    - 85
+    - 90
+    change_points:
+    - 350
+    - 600
+    - 850
+    - 1100
+    - 1350
+    - 1600
+    - 1850
+    - 2100
+    - 2350
+    - 2600
+    - 2850
+    - 3100
+    - 3350
+    - 3600
+    cpu_percentage: 100
+    ramp_up_period_in_sec: 0
+    memory_request_MiB: 1
+    name: "profile-regular"
+    service_name: "frontend"
+    iat_distribution: "exponential"
+    iat_jitter_ms: 0

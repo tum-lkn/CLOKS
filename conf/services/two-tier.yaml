@@ -1,0 +1,41 @@
+services:
+  - name: frontend
+    lb_policy: round_robin
+    min_replicas: 4
+    max_replicas: 30
+    port: 5000
+    pod_ready_delay: 1
+    pod_deletion_grace_period: 30
+    request_timeout: 30 # seconds
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 100 # milliseconds
+    cpu_num_workers: 8
+    cpu_num_threads: 1
+    cpu_request: 200
+    cpu_limit: 1000
+    upstream:
+      - service: backend
+        profile_name: "profile-regular-backend"
+        trigger_at: 0.1    # earliest target point in local processing where async call is fired.
+        probability: 1.0   # Probability this upstream call is made (default: 1.0)
+        blocking: true
+        # blocking: false     # initial behavior right after triggering (true blocks immediately, false continues)
+        # block_at: 0.9      # latest local-progress fraction by which upstream result must be available; if not available by then, parent request transitions to waiting.
+
+  - name: backend
+    lb_policy: round_robin
+    min_replicas: 4
+    max_replicas: 30
+    port: 5001
+    pod_ready_delay: 2
+    pod_deletion_grace_period: 30
+    request_timeout: -1
+    request_profiles:
+      - name: "profile-regular-backend"
+        request_duration: 50 # milliseconds
+    cpu_num_workers: 1
+    cpu_num_threads: 1
+    cpu_request: 200
+    cpu_limit: 1000
+    upstream: []

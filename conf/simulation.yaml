@@ -1,0 +1,53 @@
+# infra:    01_nodes.yaml
+# infra:    02_nodes.yaml
+# infra:    03_nodes.yaml
+infra:    04_nodes.yaml
+
+# requests: req_iat_5_total.yaml
+# requests: req_iat_5_fluctuating.yaml
+# requests: req_iat_constant.yaml
+# requests: req_iat_burn_cpu.yaml
+# requests: req_iat_bookinfo.yaml
+requests: req_iat_bookinfo_stairs_inc_2.yaml
+# requests: req_iat_0.yaml
+# requests: req_iat_1.yaml
+# requests: req_iat_15_huawei_d_0-2.yaml
+# requests: req_iat_15_huawei_d_0-2_exp.yaml
+# requests: req_iat_15_huawei_d_0-2_red.yaml
+# requests: req_iat_15_huawei_d_0-6.yaml
+
+# services: single-tier.yaml
+# services: burn-cpu.yaml
+services: bookinfo.yaml
+# services: two-tier.yaml
+# services: multi-tier.yaml
+# services: burn-cpu.yaml
+
+# hpa:      single-tier.yaml
+# hpa:      burn-cpu.yaml
+hpa:      bookinfo.yaml
+# hpa:      burn-cpu-remote.yaml
+# hpa:      two-tier.yaml
+# hpa:      multi-tier.yaml
+
+pod_scheduler: local.yaml
+# pod_scheduler: remote.yaml
+
+exporter: influxdb.yaml
+
+
+debug_logging: false
+
+sim_perf_period: 30
+seed: 42
+
+start_immediately: true
+
+simulation_server:
+  enabled: false
+  port: 9090
+
+sampling_periods:
+  metrics_server: 15
+  kubelet: 9
+  counter: 5

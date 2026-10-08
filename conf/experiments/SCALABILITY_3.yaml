@@ -1,0 +1,23 @@
+name: SCALABILITY_3
+
+base_config: conf/simulation.yaml
+binary: ./network-simulator
+output_root: experiments/runs
+
+concurrency: 5
+repeats: 20
+
+fixed:
+  infra: 1000_cpus_nodes.yaml
+  requests: req_iat_burn_cpu_const_1000.yaml
+  services: burn-cpu.yaml
+  hpa: burn-cpu.yaml
+
+matrix:
+  hpa_threshold: [0.10]
+  min_replicas: [1000]
+  max_replicas: [2000]
+
+seeds:
+  mode: increment
+  start: 42

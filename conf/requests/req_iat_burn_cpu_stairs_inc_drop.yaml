@@ -1,0 +1,12 @@
+iat:
+  end_time: 1000
+  id: "00"
+  profiles:
+  - ramp_up_period_in_sec: 0
+    rates: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 10]
+    change_points: [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+    memory_request_MiB: 1
+    name: "profile-regular"
+    service_name: "burn-cpu"
+    iat_distribution: "exponential"
+    iat_jitter_ms: 10

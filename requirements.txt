@@ -1,0 +1,16 @@
+# Python packages for the experiment, analysis and plotting scripts
+# (experiments/, profiler/). Install with:
+#
+#   python3 -m pip install -r requirements.txt
+#
+# Versions are the ones used to produce the paper results (Python 3.10).
+
+pandas==2.1.1
+numpy==1.23.5
+scipy==1.11.4
+matplotlib==3.8.2
+PyYAML==6.0.1
+plotly==5.18.0
+
+# Optional: only for the reference servers in test/remote_hpa and test/remote_pod_scheduler
+# flask

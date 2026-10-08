@@ -1,0 +1,6 @@
+hpa:
+- service_name: burn-cpu
+  mode: remote
+  endpoint: http://localhost:8080/scaling
+  synch_period: 1
+  remote_timeout_seconds: 10

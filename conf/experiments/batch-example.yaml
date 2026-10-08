@@ -1,0 +1,26 @@
+name: single-tier-sweep
+
+base_config: conf/simulation.yaml
+binary: ./network-simulator
+output_root: experiments/runs
+
+concurrency: 5
+repeats: 1
+
+fixed:
+  infra: 01_nodes.yaml
+  requests: req_iat_0.yaml
+  services: single-tier.yaml
+  hpa: single-tier.yaml
+
+matrix:
+  hpa_threshold: [0.50]
+  min_replicas: [1]
+  max_replicas: [1]
+  cpu_request: [50]
+  cpu_limit: [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000]
+  # cpu_limit: [500, 1000]
+
+seeds:
+  mode: increment
+  start: 42

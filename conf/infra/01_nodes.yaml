@@ -1,0 +1,21 @@
+num_nodes: 1
+# Option 1: Legacy uniform configuration (all nodes have same CPU count)
+# num_cpus_per_node: 8
+
+# Option 2: Per-node configuration with VM templates
+node_configs:
+  - name: "Server"         # Standard server node
+    node_ids: [0]          # Node 1 uses this configuration
+    template: "r5.4xlarge"   # Use AWS m5.large template
+
+cpu:
+  # scheduling_algorithm: "cfs"
+  scheduling_algorithm: "rr"
+  # cfs_quota_us: 200000
+  # cfs_period_us: 1000000
+
+# Inter-node latency matrix (in milliseconds)
+# Matrix must be symmetric and all values must be positive
+# Row i, Column j represents latency from node i to node j
+inter_node_latency:
+  - [0]  # Node 0 to: [Node 0, Node 0]

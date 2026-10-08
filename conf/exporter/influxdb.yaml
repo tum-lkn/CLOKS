@@ -1,0 +1,5 @@
+enabled: false
+
+server_url: "http://localhost:8181"
+token_file: influx-admin.token
+database: "simulator"

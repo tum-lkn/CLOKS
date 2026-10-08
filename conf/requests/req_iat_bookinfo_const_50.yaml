@@ -1,0 +1,12 @@
+iat:
+  end_time: 1000
+  id: "00"
+  profiles:
+  - ramp_up_period_in_sec: 0
+    rates: [10, 20, 30, 40, 60]
+    change_points: [50, 100, 150, 200]
+    memory_request_MiB: 1
+    name: "profile-regular"
+    service_name: "productpage"
+    iat_distribution: "exponential"
+    iat_jitter_ms: 1

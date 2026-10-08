@@ -1,0 +1,18 @@
+name: EXPERIMENT_50
+
+base_config: conf/simulation.yaml
+binary: ./network-simulator
+output_root: experiments/runs
+
+concurrency: 5
+repeats: 20
+
+fixed:
+  infra: 04_nodes.yaml
+  requests: req_iat_bookinfo_const_25.yaml
+  services: bookinfo.yaml
+  hpa: bookinfo.yaml
+
+seeds:
+  mode: increment
+  start: 42

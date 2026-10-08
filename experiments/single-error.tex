@@ -1,0 +1,37 @@
+\begin{table}[t]
+\centering
+\caption{Configuration and accuracy metrics of single-tier experiments compared to the baseline.}
+\setcounter{rownum}{0}
+\renewcommand{\arraystretch}{0.95}
+\setlength{\tabcolsep}{2pt}
+\label{tab:single-accuracy}
+\begin{tabular}{c H l c c c c c}
+\toprule
+\multirow{4}{*}{\textbf{\#}} & \multirow{4}{*}{\textbf{Exp.}} & \multirow{4}{*}{\textbf{Description}} 
+& \multicolumn{3}{c}{\textbf{Time-Avg MAE}} 
+& \multicolumn{2}{c}{\textbf{Aggregate Metrics}} \\
+\cmidrule(lr){4-6} \cmidrule(lr){7-8}
+& & 
+& \makecell{$rct_{p50}$ \\ (ms)} 
+& \makecell{$nr_{\text{pods}}$} 
+& \makecell{CPU \\ Util. (\%)} 
+& \makecell{Mean $rct$ \\ rel. error (\%)} 
+& \makecell{$\Delta$ Pod- \\ Min. (\%)} \\
+\midrule
+\circnum{\rownumber} & E-00 & Baseline & -- & -- & -- & -- & -- \\
+\midrule
+\multicolumn{8}{l}{\textit{Traffic Pattern}} \\
+\circnum{\rownumber} & E-01 & Regular Traffic & -- & -- & -- & -- & -- \\
+\circnum{\rownumber} & E-12 & Symmetric incr. -- decr. & -- & -- & -- & -- & -- \\
+\circnum{\rownumber} & E-13 & Sudden drop & -- & -- & -- & -- & -- \\
+\midrule
+\multicolumn{8}{l}{\textit{HPA Threshold}} \\ 
+\circnum{\rownumber} & E-04 & 0.10 & -- & -- & -- & -- & -- \\
+\circnum{\rownumber} & E-20 & 0.30 & -- & -- & -- & -- & -- \\
+\midrule
+\multicolumn{8}{l}{\textit{CPU Limit}} \\
+\circnum{\rownumber} & E-19 & 750 mCPU & -- & -- & -- & -- & -- \\
+\circnum{\rownumber} & E-08 & 1000 mCPU & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}

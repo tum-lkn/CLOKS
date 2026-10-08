@@ -1,0 +1,3 @@
+mode: remote
+endpoint: http://localhost:8081/schedule
+remote_timeout_seconds: 5

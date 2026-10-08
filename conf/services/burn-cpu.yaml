@@ -1,0 +1,22 @@
+services:
+  # - name: default
+  #   lb_policy: round_robin
+  #   port: 5001
+  - name: burn-cpu
+    # lb_policy: ewma
+    lb_policy: least_requests
+    # lb_policy: random
+    # lb_policy: round_robin
+    min_replicas: 3  # The initial number of pods 
+    max_replicas: 40 # The maximum number of pods
+    port: 5000
+    pod_ready_delay: 25 # The delay until the Pod is ready
+    pod_deletion_grace_period: 30 # The delay of the Pod Deletion
+    cpu_num_workers: 1 # The number of worker processes per Pod (Gunicorn-style)
+    cpu_num_threads: 1 # The number of threads per worker
+    cpu_request: 500
+    cpu_limit: 500
+    request_timeout: 10
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 52 # This is in milliseconds

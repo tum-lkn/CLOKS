@@ -1,0 +1,24 @@
+name: EXPERIMENT_35
+base_config: conf/simulation.yaml
+binary: ./network-simulator
+output_root: experiments/runs
+
+concurrency: 5
+repeats: 20
+
+fixed:
+  infra: 04_nodes.yaml
+  requests: req_iat_burn_cpu_const_20.yaml
+  services: burn-cpu.yaml
+  hpa: burn-cpu.yaml
+
+matrix:
+  cpu_request: [300]
+  cpu_limit: [300]
+  request_duration: [52]
+  min_replicas: [24]
+  max_replicas: [24]
+
+seeds:
+  mode: increment
+  start: 42

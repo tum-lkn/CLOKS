@@ -1,0 +1,2 @@
+mode: local
+scheduling_policy: highest_cpu  # Options: default, consolidation, highest_cpu

@@ -1,0 +1,22 @@
+num_nodes: 4
+# Option 1: Legacy uniform configuration (all nodes have same CPU count)
+# num_cpus_per_node: 8
+
+# Option 2: Per-node configuration with VM templates
+node_configs:
+  - name: "XL Server"      # High-end server node
+    node_ids: [0,1,2,3]          # Single large node
+    template: "c5.2xlarge" # Use AWS c5.4xlarge template
+
+# Inter-node latency matrix (in milliseconds)
+# Matrix must be symmetric and all values must be positive
+# Row i, Column j represents latency from node i to node j
+inter_node_latency:
+  - [0.05, 0.25, 0.25, 0.25]  # Node 0 to: [Node 0, Node 1, Node 2, Node 3]
+  - [0.25, 0.05, 0.25, 0.25]  # Node 1 to: [Node 0, Node 1, Node 2, Node 3]
+  - [0.25, 0.25, 0.05, 0.25]  # Node 2 to: [Node 0, Node 1, Node 2, Node 3]
+  - [0.25, 0.25, 0.25, 0.05]  # Node 3 to: [Node 0, Node 1, Node 2, Node 3]
+  # - [0.05, 0.05, 0.05, 0.05]  # Node 0 to: [Node 0, Node 1, Node 2, Node 3]
+  # - [0.05, 0.05, 0.05, 0.05]  # Node 1 to: [Node 0, Node 1, Node 2, Node 3]
+  # - [0.05, 0.05, 0.05, 0.05]  # Node 2 to: [Node 0, Node 1, Node 2, Node 3]
+  # - [0.05, 0.05, 0.05, 0.05]  # Node 3 to: [Node 0, Node 1, Node 2, Node 3]

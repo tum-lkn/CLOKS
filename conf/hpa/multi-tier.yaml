@@ -1,0 +1,21 @@
+hpa:
+- service_name: frontend
+  mode: original
+  threshold: 0.60
+  synch_period: 15
+  grace_period_scale_in: 300
+  grace_period_scale_out: 15
+
+- service_name: backend-service
+  mode: original
+  threshold: 0.60
+  synch_period: 15
+  grace_period_scale_in: 300
+  grace_period_scale_out: 15
+
+- service_name: database
+  mode: original
+  threshold: 0.60
+  synch_period: 15
+  grace_period_scale_in: 300
+  grace_period_scale_out: 15

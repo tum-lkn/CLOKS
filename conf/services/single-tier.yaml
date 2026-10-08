@@ -1,0 +1,18 @@
+services:
+  - name: frontend
+    lb_policy: round-robin
+    # lb_policy: ewma
+    min_replicas: 1
+    max_replicas: 30
+    port: 5000
+    pod_ready_delay: 1 # This is in seconds
+    pod_deletion_grace_period: 30 # This is in seconds
+    request_timeout: 30 # This is in seconds
+    request_profiles:
+      - name: "profile-regular"
+        request_duration: 51 # This is in milliseconds
+    cpu_num_workers: 1
+    cpu_num_threads: 1
+    cpu_request: 50
+    cpu_limit: 500
+    upstream: []

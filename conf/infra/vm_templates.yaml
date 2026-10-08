@@ -1,0 +1,133 @@
+# VM Templates based on AWS EC2 Instance Types
+# This file defines reusable VM configurations that can be referenced in infrastructure files
+
+vm_templates:
+  # General Purpose Instances
+  - name: "t3.nano-small"
+    description: "AWS t3.nano - Burstable performance, 1 vCPUs, 0.5 GB RAM"
+    num_cpus: 1
+    memory_gb: 0.5
+
+  - name: "t3.nano"
+    description: "AWS t3.nano - Burstable performance, 2 vCPUs, 0.5 GB RAM"
+    num_cpus: 2
+    memory_gb: 0.5
+    
+  - name: "t3.micro"
+    description: "AWS t3.micro - Burstable performance, 2 vCPUs, 1 GB RAM"
+    num_cpus: 2
+    memory_gb: 1
+    
+  - name: "t3.small"
+    description: "AWS t3.small - Burstable performance, 2 vCPUs, 2 GB RAM"
+    num_cpus: 2
+    memory_gb: 2
+    
+  - name: "t3.medium"
+    description: "AWS t3.medium - Burstable performance, 2 vCPUs, 4 GB RAM"
+    num_cpus: 2
+    memory_gb: 4
+    
+  - name: "t3.large"
+    description: "AWS t3.large - Burstable performance, 2 vCPUs, 8 GB RAM"
+    num_cpus: 2
+    memory_gb: 8
+    
+  - name: "m5.large"
+    description: "AWS m5.large - General purpose, 2 vCPUs, 8 GB RAM"
+    num_cpus: 2
+    memory_gb: 8
+    
+  - name: "m5.xlarge"
+    description: "AWS m5.xlarge - General purpose, 4 vCPUs, 16 GB RAM"
+    num_cpus: 4
+    memory_gb: 16
+    
+  - name: "m5.2xlarge"
+    description: "AWS m5.2xlarge - General purpose, 8 vCPUs, 32 GB RAM"
+    num_cpus: 8
+    memory_gb: 32
+    
+  - name: "m5.4xlarge"
+    description: "AWS m5.4xlarge - General purpose, 16 vCPUs, 64 GB RAM"
+    num_cpus: 16
+    memory_gb: 64
+    
+  - name: "m5.8xlarge"
+    description: "AWS m5.8xlarge - General purpose, 32 vCPUs, 128 GB RAM"
+    num_cpus: 32
+    memory_gb: 128
+    
+  # Compute Optimized Instances
+  - name: "c5.large"
+    description: "AWS c5.large - Compute optimized, 2 vCPUs, 4 GB RAM"
+    num_cpus: 2
+    memory_gb: 4
+    
+  - name: "c5.xlarge"
+    description: "AWS c5.xlarge - Compute optimized, 4 vCPUs, 8 GB RAM"
+    num_cpus: 4
+    memory_gb: 8
+    
+  - name: "c5.2xlarge"
+    description: "AWS c5.2xlarge - Compute optimized, 8 vCPUs, 16 GB RAM"
+    num_cpus: 8
+    memory_gb: 16
+    
+  - name: "c5.4xlarge"
+    description: "AWS c5.4xlarge - Compute optimized, 16 vCPUs, 32 GB RAM"
+    num_cpus: 16
+    memory_gb: 32
+    
+  - name: "c5.9xlarge"
+    description: "AWS c5.9xlarge - Compute optimized, 36 vCPUs, 72 GB RAM"
+    num_cpus: 36
+    memory_gb: 72
+    
+  # Memory Optimized Instances
+  - name: "r5.large"
+    description: "AWS r5.large - Memory optimized, 2 vCPUs, 16 GB RAM"
+    num_cpus: 2
+    memory_gb: 16
+    
+  - name: "r5.xlarge"
+    description: "AWS r5.xlarge - Memory optimized, 4 vCPUs, 32 GB RAM"
+    num_cpus: 4
+    memory_gb: 32
+    
+  - name: "r5.2xlarge"
+    description: "AWS r5.2xlarge - Memory optimized, 8 vCPUs, 64 GB RAM"
+    num_cpus: 8
+    memory_gb: 64
+    
+  - name: "r5.4xlarge"
+    description: "AWS r5.4xlarge - Memory optimized, 16 vCPUs, 128 GB RAM"
+    num_cpus: 16
+    memory_gb: 128
+    
+  # Custom/Edge Computing Templates
+  - name: "rpi4"
+    description: "Raspberry Pi 4 Model B - ARM Cortex-A72, 4 cores, 8 GB RAM"
+    num_cpus: 4
+    memory_gb: 8
+    
+  - name: "rpi3"
+    description: "Raspberry Pi 3 Model B+ - ARM Cortex-A53, 4 cores, 1 GB RAM"
+    num_cpus: 4
+    memory_gb: 1
+    
+  - name: "edge_small"
+    description: "Small edge device - 2 cores, 2 GB RAM"
+    num_cpus: 2
+    memory_gb: 2
+    
+  - name: "edge_medium"
+    description: "Medium edge device - 4 cores, 4 GB RAM"
+    num_cpus: 4
+    memory_gb: 4
+    
+  # High-performance scalability testing
+  - name: "custom_1000cpu"
+    description: "Custom large instance - 1000 vCPUs, 2000 GB RAM"
+    num_cpus: 1000
+    memory_gb: 2000
